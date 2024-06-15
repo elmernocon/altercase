@@ -1,0 +1,448 @@
+- input: '.abcXYZ'
+  expected:
+    split:
+      - 'abc'
+      - 'XYZ'
+    camel: 'abcXYZ'
+    kebab: 'abc-xyz'
+    pascal: 'AbcXYZ'
+    snake: 'abc_xyz'
+- input: 'abc.XYZ'
+  expected:
+    split:
+      - 'abc'
+      - 'XYZ'
+    camel: 'abcXYZ'
+    kebab: 'abc-xyz'
+    pascal: 'AbcXYZ'
+    snake: 'abc_xyz'
+- input: 'abcXYZ.'
+  expected:
+    split:
+      - 'abc'
+      - 'XYZ'
+    camel: 'abcXYZ'
+    kebab: 'abc-xyz'
+    pascal: 'AbcXYZ'
+    snake: 'abc_xyz'
+- input: '..abcXYZ'
+  expected:
+    split:
+      - 'abc'
+      - 'XYZ'
+    camel: 'abcXYZ'
+    kebab: 'abc-xyz'
+    pascal: 'AbcXYZ'
+    snake: 'abc_xyz'
+- input: 'abc..XYZ'
+  expected:
+    split:
+      - 'abc'
+      - 'XYZ'
+    camel: 'abcXYZ'
+    kebab: 'abc-xyz'
+    pascal: 'AbcXYZ'
+    snake: 'abc_xyz'
+- input: 'abcXYZ..'
+  expected:
+    split:
+      - 'abc'
+      - 'XYZ'
+    camel: 'abcXYZ'
+    kebab: 'abc-xyz'
+    pascal: 'AbcXYZ'
+    snake: 'abc_xyz'
+- input: 'abcXYZ'
+  expected:
+    split:
+      - 'abc'
+      - 'XYZ'
+    camel: 'abcXYZ'
+    kebab: 'abc-xyz'
+    pascal: 'AbcXYZ'
+    snake: 'abc_xyz'
+- input: 'abc123'
+  expected:
+    split:
+      - 'abc'
+      - '123'
+    camel: 'abc123'
+    kebab: 'abc-123'
+    pascal: 'Abc123'
+    snake: 'abc_123'
+- input: 'XYZabc'
+  expected:
+    split:
+      - 'XY'
+      - 'Zabc'
+    camel: 'xyZabc'
+    kebab: 'xy-zabc'
+    pascal: 'XYZabc'
+    snake: 'xy_zabc'
+- input: 'XYZ123'
+  expected:
+    split:
+      - 'XYZ'
+      - '123'
+    camel: 'xyz123'
+    kebab: 'xyz-123'
+    pascal: 'XYZ123'
+    snake: 'xyz_123'
+- input: '123abc'
+  expected:
+    split:
+      - '123'
+      - 'abc'
+    camel: '123Abc'
+    kebab: '123-abc'
+    pascal: '123Abc'
+    snake: '123_abc'
+- input: '123XYZ'
+  expected:
+    split:
+      - '123'
+      - 'XYZ'
+    camel: '123XYZ'
+    kebab: '123-xyz'
+    pascal: '123XYZ'
+    snake: '123_xyz'
+- input: 'abcXYZ123'
+  expected:
+    split:
+      - 'abc'
+      - 'XYZ'
+      - '123'
+    camel: 'abcXYZ123'
+    kebab: 'abc-xyz-123'
+    pascal: 'AbcXYZ123'
+    snake: 'abc_xyz_123'
+- input: 'abc123XYZ'
+  expected:
+    split:
+      - 'abc'
+      - '123'
+      - 'XYZ'
+    camel: 'abc123XYZ'
+    kebab: 'abc-123-xyz'
+    pascal: 'Abc123XYZ'
+    snake: 'abc_123_xyz'
+- input: 'XYZabc123'
+  expected:
+    split:
+      - 'XY'
+      - 'Zabc'
+      - '123'
+    camel: 'xyZabc123'
+    kebab: 'xy-zabc-123'
+    pascal: 'XYZabc123'
+    snake: 'xy_zabc_123'
+- input: 'XYZ123abc'
+  expected:
+    split:
+      - 'XYZ'
+      - '123'
+      - 'abc'
+    camel: 'xyz123Abc'
+    kebab: 'xyz-123-abc'
+    pascal: 'XYZ123Abc'
+    snake: 'xyz_123_abc'
+- input: '123abcXYZ'
+  expected:
+    split:
+      - '123'
+      - 'abc'
+      - 'XYZ'
+    camel: '123AbcXYZ'
+    kebab: '123-abc-xyz'
+    pascal: '123AbcXYZ'
+    snake: '123_abc_xyz'
+- input: '123XYZabc'
+  expected:
+    split:
+      - '123'
+      - 'XY'
+      - 'Zabc'
+    camel: '123XYZabc'
+    kebab: '123-xy-zabc'
+    pascal: '123XYZabc'
+    snake: '123_xy_zabc'
+- input: 'Foo'
+  expected:
+    split:
+      - 'Foo'
+    camel: 'foo'
+    kebab: 'foo'
+    pascal: 'Foo'
+    snake: 'foo'
+- input: '4G LTE Network'
+  expected:
+    split:
+      - '4'
+      - 'G'
+      - 'LTE'
+      - 'Network'
+    camel: '4GLTENetwork'
+    kebab: '4-g-lte-network'
+    pascal: '4GLTENetwork'
+    snake: '4_g_lte_network'
+- input: '802.11n Wi-Fi Standard'
+  expected:
+    split:
+      - '802'
+      - '11'
+      - 'n'
+      - 'Wi'
+      - 'Fi'
+      - 'Standard'
+    camel: '80211NWiFiStandard'
+    kebab: '802-11-n-wi-fi-standard'
+    pascal: '80211NWiFiStandard'
+    snake: '802_11_n_wi_fi_standard'
+- input: 'ApacheHTTPServer2.4'
+  expected:
+    split:
+      - 'Apache'
+      - 'HTTP'
+      - 'Server'
+      - '2'
+      - '4'
+    camel: 'apacheHTTPServer24'
+    kebab: 'apache-http-server-2-4'
+    pascal: 'ApacheHTTPServer24'
+    snake: 'apache_http_server_2_4'
+- input: 'APIv2Parser'
+  expected:
+    split:
+      - 'API'
+      - 'v2'
+      - 'Parser'
+    camel: 'apiV2Parser'
+    kebab: 'api-v2-parser'
+    pascal: 'APIV2Parser'
+    snake: 'api_v2_parser'
+- input: 'DDR4RAMModule'
+  expected:
+    split:
+      - 'DDR'
+      - '4'
+      - 'RAM'
+      - 'Module'
+    camel: 'ddr4RAMModule'
+    kebab: 'ddr-4-ram-module'
+    pascal: 'DDR4RAMModule'
+    snake: 'ddr_4_ram_module'
+- input: 'DirectX12API'
+  expected:
+    split:
+      - 'Direct'
+      - 'X'
+      - '12'
+      - 'API'
+    camel: 'directX12API'
+    kebab: 'direct-x-12-api'
+    pascal: 'DirectX12API'
+    snake: 'direct_x_12_api'
+- input: 'Foobar2000'
+  expected:
+    split:
+      - 'Foobar'
+      - '2000'
+    camel: 'foobar2000'
+    kebab: 'foobar-2000'
+    pascal: 'Foobar2000'
+    snake: 'foobar_2000'
+- input: 'GloballyUniqueId'
+  expected:
+    split:
+      - 'Globally'
+      - 'Unique'
+      - 'Id'
+    camel: 'globallyUniqueId'
+    kebab: 'globally-unique-id'
+    pascal: 'GloballyUniqueId'
+    snake: 'globally_unique_id'
+- input: 'HTML5Application'
+  expected:
+    split:
+      - 'HTML'
+      - '5'
+      - 'Application'
+    camel: 'html5Application'
+    kebab: 'html-5-application'
+    pascal: 'HTML5Application'
+    snake: 'html_5_application'
+- input: 'HTTP/2Protocol'
+  expected:
+    split:
+      - 'HTTP'
+      - '2'
+      - 'Protocol'
+    camel: 'http2Protocol'
+    kebab: 'http-2-protocol'
+    pascal: 'HTTP2Protocol'
+    snake: 'http_2_protocol'
+- input: 'IEEE802.3EthernetStandard'
+  expected:
+    split:
+      - 'IEEE'
+      - '802'
+      - '3'
+      - 'Ethernet'
+      - 'Standard'
+    camel: 'ieee8023EthernetStandard'
+    kebab: 'ieee-802-3-ethernet-standard'
+    pascal: 'IEEE8023EthernetStandard'
+    snake: 'ieee_802_3_ethernet_standard'
+- input: 'Announcement: iPhone Model'
+  expected:
+    split:
+      - 'Announcement'
+      - 'i'
+      - 'Phone'
+      - 'Model'
+    camel: 'announcementIPhoneModel'
+    kebab: 'announcement-i-phone-model'
+    pascal: 'AnnouncementIPhoneModel'
+    snake: 'announcement_i_phone_model'
+- input: 'IPv6Addressing'
+  expected:
+    split:
+      - 'IP'
+      - 'v6'
+      - 'Addressing'
+    camel: 'ipV6Addressing'
+    kebab: 'ip-v6-addressing'
+    pascal: 'IPV6Addressing'
+    snake: 'ip_v6_addressing'
+- input: 'jQuery3.6Library'
+  expected:
+    split:
+      - 'j'
+      - 'Query'
+      - '3'
+      - '6'
+      - 'Library'
+    camel: 'jQuery36Library'
+    kebab: 'j-query-3-6-library'
+    pascal: 'JQuery36Library'
+    snake: 'j_query_3_6_library'
+- input: 'JWTToken'
+  expected:
+    split:
+      - 'JWT'
+      - 'Token'
+    camel: 'jwtToken'
+    kebab: 'jwt-token'
+    pascal: 'JWTToken'
+    snake: 'jwt_token'
+- input: 'OAuth2.0'
+  expected:
+    split:
+      - 'O'
+      - 'Auth'
+      - '2'
+      - '0'
+    camel: 'oAuth20'
+    kebab: 'o-auth-2-0'
+    pascal: 'OAuth20'
+    snake: 'o_auth_2_0'
+- input: 'PCIe4.0Interface'
+  expected:
+    split:
+      - 'PCI'
+      - 'e'
+      - '4'
+      - '0'
+      - 'Interface'
+    camel: 'pciE40Interface'
+    kebab: 'pci-e-4-0-interface'
+    pascal: 'PCIE40Interface'
+    snake: 'pci_e_4_0_interface'
+- input: 'Python3.x'
+  expected:
+    split:
+      - 'Python'
+      - '3'
+      - 'x'
+    camel: 'python3X'
+    kebab: 'python-3-x'
+    pascal: 'Python3X'
+    snake: 'python_3_x'
+- input: 'React.js17Framework'
+  expected:
+    split:
+      - 'React'
+      - 'js'
+      - '17'
+      - 'Framework'
+    camel: 'reactJs17Framework'
+    kebab: 'react-js-17-framework'
+    pascal: 'ReactJs17Framework'
+    snake: 'react_js_17_framework'
+- input: 'RestAPI'
+  expected:
+    split:
+      - 'Rest'
+      - 'API'
+    camel: 'restAPI'
+    kebab: 'rest-api'
+    pascal: 'RestAPI'
+    snake: 'rest_api'
+- input: 'REST-ful API'
+  expected:
+    split:
+      - 'REST'
+      - 'ful'
+      - 'API'
+    camel: 'restFulAPI'
+    kebab: 'rest-ful-api'
+    pascal: 'RESTFulAPI'
+    snake: 'rest_ful_api'
+- input: 'RESTFUL API'
+  expected:
+    split:
+      - 'RESTFUL'
+      - 'API'
+    camel: 'restfulAPI'
+    kebab: 'restful-api'
+    pascal: 'RESTFULAPI'
+    snake: 'restful_api'
+- input: 'WebGL2.0'
+  expected:
+    split:
+      - 'Web'
+      - 'GL'
+      - '2'
+      - '0'
+    camel: 'webGL20'
+    kebab: 'web-gl-2-0'
+    pascal: 'WebGL20'
+    snake: 'web_gl_2_0'
+- input: 'WiFi'
+  expected:
+    split:
+      - 'Wi'
+      - 'Fi'
+    camel: 'wiFi'
+    kebab: 'wi-fi'
+    pascal: 'WiFi'
+    snake: 'wi_fi'
+- input: 'UniversallyUniqueID'
+  expected:
+    split:
+      - 'Universally'
+      - 'Unique'
+      - 'ID'
+    camel: 'universallyUniqueID'
+    kebab: 'universally-unique-id'
+    pascal: 'UniversallyUniqueID'
+    snake: 'universally_unique_id'
+- input: 'XYZ abc'
+  expected:
+    split:
+      - 'XYZ'
+      - 'abc'
+    camel: 'xyzAbc'
+    kebab: 'xyz-abc'
+    pascal: 'XYZAbc'
+    snake: 'xyz_abc'
